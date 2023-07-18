@@ -1,5 +1,6 @@
 .navbar-nav{
     background-color: purple;
+    position: fixed;
 }
 .home-body{
     text-align: center;

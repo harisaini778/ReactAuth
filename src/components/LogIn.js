@@ -4,6 +4,7 @@ import { Form } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { Spinner } from "react-bootstrap";
 import "./LogIn.css";
+import NavBar from "./NavBar";
 
 const LogIn = () => {
   const [isLogIn, setIsLogin] = useState(false);
@@ -28,7 +29,9 @@ const LogIn = () => {
     e.target.classList.remove("focus");
   };
 
-  return (
+    return (
+        <div>
+            <NavBar/>
     <div className="main-body-login" >
       <Container>
         <Card className="card-body-login">
@@ -73,7 +76,8 @@ const LogIn = () => {
           </Card.Footer>
         </Card>
       </Container>
-    </div>
+            </div>
+            </div>
   );
 };
 
