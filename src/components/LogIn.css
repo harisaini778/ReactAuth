@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
+    margin-top: 50px;
 
 }
 
@@ -36,7 +36,7 @@
 }
 
 .btn-login:hover {
-    transform: scale(1.1) !important;
+    transform: scale(1.05) !important;
 }
 
 .spinner-container {
