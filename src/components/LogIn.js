@@ -147,21 +147,28 @@ const LogIn = () => {
     console.log(password);
     console.log("form submitted");
 
-    try {
-      const response = await axios.post(
-        isLogIn
-          ? "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyB7JHwZJZhn48Whxa5Czrm3wic3Nl6Lkdc"
-          : "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyB7JHwZJZhn48Whxa5Czrm3wic3Nl6Lkdc",
-        {
-          email: email,
-          password: password,
-        }
-      );
-      setIsLoading(false);
-      console.log(response.data);
-      enteredEmail.current.value = "";
-      enteredPassword.current.value = "";
-    } catch (error) {
+
+try {
+  const response = await axios.post(
+    isLogIn
+      ? "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyB7JHwZJZhn48Whxa5Czrm3wic3Nl6Lkdc"
+      : "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyB7JHwZJZhn48Whxa5Czrm3wic3Nl6Lkdc",
+    {
+      email: email,
+      password: password,
+      returnSecureToken: true
+    },
+    {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }
+  );
+  setIsLoading(false);
+  console.log(response.data);
+  enteredEmail.current.value = "";
+  enteredPassword.current.value = "";
+} catch (error) {
       setIsLoading(false);
       console.log(error);
       alert(error.message);
