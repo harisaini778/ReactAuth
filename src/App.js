@@ -1,12 +1,13 @@
 import Home from './components/Home';
 import LogIn from './components/LogIn';
 import './App.css';
-import {BrowserRouter as Router, Route,Routes,Navigate} from "react-router-dom"
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom"
+import { AuthContextProvider } from './components/store/auth-context';
 
 function App() {
   return (
-    
-    <div>
+    <AuthContextProvider>
+      <div>
       <Router>
         <Routes>
           <Route path='/' element={<Navigate to="/Home" />} />
@@ -17,6 +18,8 @@ function App() {
         </Routes>
       </Router>
     </div>
+    </AuthContextProvider>
+    
     
   );
 }

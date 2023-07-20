@@ -121,16 +121,20 @@
 // };
 
 // export default LogIn;
-import React, { useState, useRef } from "react";
+import React, { useState, useRef,useContext } from "react";
 import { Button, Card, Row } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { Spinner } from "react-bootstrap";
 import "./LogIn.css";
 import NavBar from "./NavBar";
+import AuthContext from "./store/auth-context";
 
 
 const LogIn = () => {
+
+  const AuthCtx = useContext(AuthContext);
+
   const [isLogIn, setIsLogin] = useState(false);
   const [isExisting, setIsExisting] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -145,7 +149,7 @@ const LogIn = () => {
     const password = enteredPassword.current.value;
     console.log(email);
     console.log(password);
-    console.log("form submitted");
+   console.log("form submitted");
 
     try {
       const response = await fetch(
@@ -170,8 +174,13 @@ const LogIn = () => {
         setIsLoading(false);
         console.log(data);
         enteredEmail.current.value = "";
-        enteredPassword.current.value = "";
-        alert("Log in successful");
+          enteredPassword.current.value = "";
+          AuthCtx.login(data.idToken);
+           if(isLogIn) {
+           alert("Log in successful");
+        } else {
+          alert("Your account is created succesfully,Now you can login using your credentials")
+        } 
       } else {
         setIsLoading(false);
         console.log(data);
@@ -187,6 +196,7 @@ const LogIn = () => {
       enteredPassword.current.value = "";
     }
   };
+ 
 
 
   const existingAccountHandler = () => {
@@ -296,5 +306,4 @@ const LogIn = () => {
     </div>
   );
 };
-
 export default LogIn;
