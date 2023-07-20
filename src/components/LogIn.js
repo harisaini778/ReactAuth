@@ -128,7 +128,7 @@ import { Container } from "react-bootstrap";
 import { Spinner } from "react-bootstrap";
 import "./LogIn.css";
 import NavBar from "./NavBar";
-import axios from "axios";
+
 
 const LogIn = () => {
   const [isLogIn, setIsLogin] = useState(false);
@@ -138,7 +138,7 @@ const LogIn = () => {
   const enteredEmail = useRef(null);
   const enteredPassword = useRef(null);
 
-  const submitFormHandler = async (e) => {
+ const submitFormHandler = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     const email = enteredEmail.current.value;
@@ -147,35 +147,47 @@ const LogIn = () => {
     console.log(password);
     console.log("form submitted");
 
+    try {
+      const response = await fetch(
+        isLogIn
+          ? "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyB7JHwZJZhn48Whxa5Czrm3wic3Nl6Lkdc"
+          : "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyB7JHwZJZhn48Whxa5Czrm3wic3Nl6Lkdc",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            email: email,
+            password: password,
+            returnSecureToken: true
+          })
+        }
+      );
 
-try {
-  const response = await axios.post(
-    isLogIn
-      ? "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyB7JHwZJZhn48Whxa5Czrm3wic3Nl6Lkdc"
-      : "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyB7JHwZJZhn48Whxa5Czrm3wic3Nl6Lkdc",
-    {
-      email: email,
-      password: password,
-      returnSecureToken: true
-    },
-    {
-      headers: {
-        "Content-Type": "application/json"
+        const data = await response.json();
+        if (response.ok) {
+        setIsLoading(false);
+        console.log(data);
+        enteredEmail.current.value = "";
+        enteredPassword.current.value = "";
+        alert("Log in successful");
+      } else {
+        setIsLoading(false);
+        console.log(data);
+        alert(data.error.message);
+        enteredEmail.current.value = "";
+        enteredPassword.current.value = "";
       }
-    }
-  );
-  setIsLoading(false);
-  console.log(response.data);
-  enteredEmail.current.value = "";
-  enteredPassword.current.value = "";
-} catch (error) {
+    } catch (error) {
       setIsLoading(false);
       console.log(error);
-      alert(error.message);
+      alert("An error occurred. Please try again later.");
       enteredEmail.current.value = "";
       enteredPassword.current.value = "";
     }
   };
+
 
   const existingAccountHandler = () => {
     setIsExisting((prevState) => !prevState);
