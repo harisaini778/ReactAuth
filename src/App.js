@@ -1,5 +1,6 @@
 import Home from './components/Home';
 import LogIn from './components/LogIn';
+import Profile from './components/Profile';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom"
 import { AuthContextProvider } from './components/store/auth-context';
@@ -13,8 +14,8 @@ function App() {
           <Route path='/' element={<Navigate to="/Home" />} />
           <Route path='/Home' element={<Home/> } />
           <Route path='/LogIn' element={<LogIn />} />
-          {/* <Route path='/Profile' element={<Profiles />} />
-          <Route path='/LogOut' element={<LogOut/>}/> */}
+          <Route path='/Profile' element={<Profile/>} />
+          {/* <Route path='/LogOut' element={<LogOut/>}/> */}
         </Routes>
       </Router>
     </div>

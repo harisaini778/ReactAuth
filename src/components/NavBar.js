@@ -21,7 +21,7 @@ const NavBar = () => {
                         <Nav>
                             <Nav.Link className="home-link" href="/Home">Home</Nav.Link>
                             {!isLoggedIn && <Nav.Link className="login-link" href="/LogIn">LogIn</Nav.Link>}
-                            {isLoggedIn && <Nav.Link className="profile-link">Profile</Nav.Link>}
+                            {isLoggedIn && <Nav.Link className="profile-link" href="/Profile">Profile</Nav.Link>}
                             {isLoggedIn && <Button className="logout-link">LogOut</Button>}
           </Nav>
         </Navbar.Collapse>
