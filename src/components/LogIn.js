@@ -59,7 +59,7 @@ const LogIn = () => {
           enteredEmail.current.value = "";
           enteredPassword.current.value = "";
           AuthCtx.login(data.idToken);
-          navigate("/");
+          navigate("/Profile");
           if (isLogIn) {
             alert("Log in successful");
           } else {
