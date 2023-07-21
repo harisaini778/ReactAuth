@@ -4,10 +4,14 @@ import { Form } from "react-bootstrap";
 import "./Profile.css";
 import { Button } from "react-bootstrap";
 import AuthContext from "./store/auth-context";
+import { useNavigate } from "react-router-dom";
+
 
 const Profile = () => {
   const AuthCtx = useContext(AuthContext);
   const enteredNewPassword = useRef(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Token is available or changed, handle it here if needed.
@@ -43,6 +47,7 @@ const Profile = () => {
         console.log(data);
         enteredNewPassword.current.value = "";
       }
+      navigate("/LogIn");
     })
     .catch((error) => {
       console.log(error);

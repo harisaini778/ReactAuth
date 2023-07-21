@@ -3,12 +3,23 @@ import { Navbar, Nav, Container } from "react-bootstrap"
 import { useContext } from "react";
 import AuthContext from "./store/auth-context";
 import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
 
     const AuthCtx = useContext(AuthContext);
 
     const isLoggedIn = AuthCtx.isLoggedIn;
+
+    const navigate = useNavigate();
+
+    const logOutHandeler = () => {
+        if (isLoggedIn) {
+            AuthCtx.logout();
+            navigate("/Home");
+        }
+
+    }
 
     return (
         <div>
@@ -22,7 +33,7 @@ const NavBar = () => {
                             <Nav.Link className="home-link" href="/Home">Home</Nav.Link>
                             {!isLoggedIn && <Nav.Link className="login-link" href="/LogIn">LogIn</Nav.Link>}
                             {isLoggedIn && <Nav.Link className="profile-link" href="/Profile">Profile</Nav.Link>}
-                            {isLoggedIn && <Button className="logout-link">LogOut</Button>}
+                            {isLoggedIn && <Button className="logout-link" onClick={logOutHandeler}>LogOut</Button>}
           </Nav>
         </Navbar.Collapse>
       </Container>

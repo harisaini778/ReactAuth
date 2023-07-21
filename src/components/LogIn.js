@@ -6,6 +6,7 @@ import { Spinner } from "react-bootstrap";
 import "./LogIn.css";
 import NavBar from "./NavBar";
 import AuthContext from "./store/auth-context";
+import { useNavigate } from "react-router-dom";
 
 const LogIn = () => {
   const AuthCtx = useContext(AuthContext);
@@ -13,6 +14,8 @@ const LogIn = () => {
   const [isLogIn, setIsLogin] = useState(false);
   const [isExisting, setIsExisting] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   const enteredEmail = useRef(null);
   const enteredPassword = useRef(null);
@@ -56,6 +59,7 @@ const LogIn = () => {
           enteredEmail.current.value = "";
           enteredPassword.current.value = "";
           AuthCtx.login(data.idToken);
+          navigate("/");
           if (isLogIn) {
             alert("Log in successful");
           } else {
