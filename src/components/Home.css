@@ -1,5 +1,6 @@
+
 .navbar-nav{
-    background-color: purple;
+    background-color: green !important;
     position: fixed;
 }
 .home-body{
@@ -10,6 +11,7 @@
 .login-link,
 .profile-link,
 .logout-link {
+    color:white !important;
     transition: transform 0.1s ease !important;
 }
 
@@ -17,5 +19,7 @@
 .login-link:hover,
 .profile-link:hover,
 .logout-link:hover {
+    border-bottom: 3px solid white !important;
+    font-weight: bold !important;
     transform: scale(1.1) !important;
 }

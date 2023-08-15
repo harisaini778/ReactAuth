@@ -92,7 +92,7 @@ const LogIn = () => {
   return (
     <div>
       <NavBar />
-      <div className="main-body-login">
+      <Container className="main-body-login">
         <Container>
           <Card className="card-body-login">
             <Card.Header className="card-border-login">
@@ -110,6 +110,7 @@ const LogIn = () => {
                     onFocus={handleFocus}
                     onBlur={handleBlur}
                     ref={enteredEmail}
+                    placeholder="Enter your email"
                   />
                   <Form.Label className="mb-2">
                     <h5>Your Password</h5>
@@ -120,19 +121,26 @@ const LogIn = () => {
                     onFocus={handleFocus}
                     onBlur={handleBlur}
                     ref={enteredPassword}
+                    placeholder="Enter your password"
                   />
                   {isLogIn || isExisting ? (
-                    <Button size="lg" className="btn-login" type="submit">
+                    <div className="d-grid login-btn">
+                       <Button variant="outline-light" className="m-2" type="submit">
                       Log In
                     </Button>
+                    </div>
+                   
                   ) : (
-                    <Button size="lg" className="btn-login" type="submit">
+                      <div className="d-grid login-btn">
+                    <Button variant="outline-light" className="m-2" type="submit">
                       Create an Account
                     </Button>
+                      </div>
+                    
                   )}
                   {isLoading && (
                     <div className="spinner-container">
-                      <Spinner animation="grow" variant="danger" className="spinner-container" />
+                      <Spinner animation="grow" variant="light" className="spinner-container" />
                       <Spinner animation="grow" variant="warning" className="spinner-container" />
                       <Spinner animation="grow" variant="info" className="spinner-container" />
                     </div>
@@ -153,7 +161,7 @@ const LogIn = () => {
             </Card.Footer>
           </Card>
         </Container>
-      </div>
+      </Container>
     </div>
   );
 };

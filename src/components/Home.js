@@ -7,7 +7,7 @@ const Home = () => {
  
     
     return (
-        <div>
+        <div >
             <NavBar/>
             <Container className="home-body">
                 <h1>

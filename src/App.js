@@ -80,7 +80,7 @@ function App() {
 
   return (
     <AuthContextProvider>
-      <div>
+      <div className='app'>
         <Router>
           <Routes>
             {/* Public routes */}

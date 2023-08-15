@@ -1,43 +1,30 @@
 .main-body-login {
-    text-align: center !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
+  text-align: center !important;
+  margin-top: 50px !important;
 
 }
 
 .card-body-login {
-    width: 50vw;
-    margin-top: 30px;
-    position: relative;
-    left: 20%;
-    background-color: purple !important;
+    margin-top: 80px !important;
+    background-color: green !important;
     color: white !important;
+}
+@media(max-width:576px){
+    .card-body-login {
+            margin-top: 80px !important;
+            background-color: green !important;
+            color: white !important;
+        }
 }
 
 .card-border-login {
-    border: 2px solid rgb(192, 92, 192) !important;
+    border: 1px solid white!important;
 }
 
 .form-control:focus {
     border: 1px solid rgb(255, 193, 255);
 }
 
-.btn-login {
-    width: 70% !important;
-    position: relative !important;
-    left: 16%;
-    margin-top: 10px !important;
-    background-color: rgb(202, 144, 255) !important;
-    color: white !important;
-    border: none !important;
-    transition: transform 0.3s ease !important;
-}
-
-.btn-login:hover {
-    transform: scale(1.05) !important;
-}
 
 .spinner-container {
     display: flex;
@@ -53,8 +40,12 @@
     text-decoration: underline;
     margin-top: 10px;
 
+
 }
 
 .existing-account-link:hover {
-    color: rgb(253, 193, 193);
+    font-weight: bold;  
+}
+.login-btn{
+    margin-top: 15px !important;
 }
