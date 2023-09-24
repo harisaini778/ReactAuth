@@ -1,21 +1,5 @@
 
 .home-body{
     text-align: center;
-    margin-top: 20px;
-}
-.home-link,
-.login-link,
-.profile-link,
-.logout-link {
-    color:white !important;
-    transition: transform 0.1s ease !important;
-}
-
-.home-link:hover,
-.login-link:hover,
-.profile-link:hover,
-.logout-link:hover {
-    border-bottom: 3px solid white !important;
-    font-weight: bold !important;
-    transform: scale(1.1) !important;
+    margin-top: 50px;
 }

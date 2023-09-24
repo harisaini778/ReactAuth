@@ -10,7 +10,7 @@ const Home = () => {
         <div >
             <NavBar/>
             <Container className="home-body">
-                <h1>
+                <h1 style={{color:"navy",fontWeight:"bold",fontSize:"3rem"}}>
                     Welcome On Board !
                 </h1>
             </Container>

@@ -14,9 +14,6 @@ const Profile = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Token is available or changed, handle it here if needed.
-    // For example, you can perform any action you need with the token when it becomes available.
-    // You can also add other dependencies to the array if needed.
     console.log("Token updated:", AuthCtx.token);
   }, [AuthCtx.token]);
 
@@ -55,25 +52,33 @@ const Profile = () => {
     });
 };
 
+  const isSmallScreen = window.innerWidth <= 576;
+
 
 
   return (
     <div>
       <NavBar />
-      <h1>Your Profile</h1>
-      <Form onSubmit={onSubmitHandler}>
+      <h1 style={{ color: "navy", textAlign: "center" }} className="mt-5">Your Profile</h1>
+      <div style={{
+        display: "flex", justifyContent: "center",
+       }} className="mt-5">
+      <Form onSubmit={onSubmitHandler} style={{ width : isSmallScreen ? "70%" : "40%"}}>
         <Form.Group>
           <Form.Label id="password">
-            <h5>New Password</h5>
+            <h5 style={{color:"navy"}}>New Password</h5>
           </Form.Label>
           <Form.Control
             type="password"
             id="password"
             ref={enteredNewPassword}
           />
-          <Button type="submit">Change Password</Button>
+          <Button type="submit" className="mt-2" style={{
+               backgroundImage: "linear-gradient(to right, #24243e, #302b63, #0f0c29)"
+          }}>Change Password</Button>
         </Form.Group>
-      </Form>
+        </Form>
+        </div>
     </div>
   );
 };

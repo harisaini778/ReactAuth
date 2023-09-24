@@ -89,20 +89,22 @@ const LogIn = () => {
     e.target.classList.remove("focus");
   };
 
+  const isSmallScreen = window.innerWidth <= 576;
+
   return (
-    <div>
+    <div >
       <NavBar />
-      <Container className="main-body-login">
-        <Container>
-          <Card className="card-body-login">
-            <Card.Header className="card-border-login">
-              {isLogIn || isExisting ? <h2>Sign In</h2> : <h2>Sign Up</h2>}
+      <Container className="mt-5">
+        <div style={{display:"flex",justifyContent:"center"}} >
+          <Card style={{width: isSmallScreen ? "80%" : "40%"}}>
+            <Card.Header >
+              {isLogIn || isExisting ? <h2 style={{color:"navy",fontWeight:"bolder"}}>Sign In</h2> : <h2 style={{color:"navy",fontWeight:"bolder"}}>Sign Up</h2>}
             </Card.Header>
-            <Card.Body className="card-border-login">
+            <Card.Body>
               <Form onSubmit={submitFormHandler}>
                 <Form.Group as={Row} className="mb-3">
                   <Form.Label className="mb-2">
-                    <h5>Your Email</h5>
+                    <h5 style={{color:"navy",fontWeight:"bolder"}}>Your Email</h5>
                   </Form.Label>
                   <Form.Control
                     type="email"
@@ -113,7 +115,7 @@ const LogIn = () => {
                     placeholder="Enter your email"
                   />
                   <Form.Label className="mb-2">
-                    <h5>Your Password</h5>
+                    <h5 style={{color:"navy",fontWeight:"bolder"}}>Your Password</h5>
                   </Form.Label>
                   <Form.Control
                     type="password"
@@ -125,14 +127,18 @@ const LogIn = () => {
                   />
                   {isLogIn || isExisting ? (
                     <div className="d-grid login-btn">
-                       <Button variant="outline-light" className="m-2" type="submit">
+                       <Button  style={{
+               backgroundImage: "linear-gradient(to right, #24243e, #302b63, #0f0c29)",fontWeight:"bold"
+          }} className="m-2" type="submit">
                       Log In
                     </Button>
                     </div>
                    
                   ) : (
                       <div className="d-grid login-btn">
-                    <Button variant="outline-light" className="m-2" type="submit">
+                    <Button  style={{
+               backgroundImage: "linear-gradient(to right, #24243e, #302b63, #0f0c29)",fontWeight:"bold"
+          }} className="m-2" type="submit">
                       Create an Account
                     </Button>
                       </div>
@@ -160,7 +166,7 @@ const LogIn = () => {
               )}
             </Card.Footer>
           </Card>
-        </Container>
+        </div>
       </Container>
     </div>
   );

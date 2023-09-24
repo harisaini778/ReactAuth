@@ -24,7 +24,7 @@ const NavBar = () => {
       <Navbar style={{
                backgroundImage: "linear-gradient(to right, #24243e, #302b63, #0f0c29)"
           }}>
-        <Container>
+        <Container >
                   <Navbar.Brand > 
             <h1 style={{color:"white"}}>ReactAuth</h1>
           </Navbar.Brand>
@@ -42,7 +42,7 @@ const NavBar = () => {
                           {isLoggedIn && <Nav.Link href="/Profile" style={{ color: "white", fontWeight: "bolder" }}
                           onMouseOver={(e) => e.currentTarget.style.borderBottom = "3px solid white"}
                            onMouseOut={(e) => e.currentTarget.style.borderBottom = "none"}>Profile</Nav.Link>}
-              {isLoggedIn && <Button className="btn btn-light" onClick={logOutHandeler}>LogOut</Button>}
+              {isLoggedIn && <Button className="btn btn-light" style={{marginLeft:"8px"}} onClick={logOutHandeler}>LogOut</Button>}
             </Nav>
           </Navbar.Collapse>
         </Container>
