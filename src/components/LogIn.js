@@ -146,7 +146,7 @@ const LogIn = () => {
                   )}
                   {isLoading && (
                     <div className="spinner-container">
-                      <Spinner animation="grow" variant="light" className="spinner-container" />
+                      <Spinner animation="grow" variant="danger" className="spinner-container" />
                       <Spinner animation="grow" variant="warning" className="spinner-container" />
                       <Spinner animation="grow" variant="info" className="spinner-container" />
                     </div>
